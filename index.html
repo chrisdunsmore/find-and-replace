@@ -14,6 +14,13 @@
             height: 100px;
             margin-bottom: 20px;
         }
+        .find-replace-container {
+            display: flex;
+            justify-content: space-between;
+        }
+        .find-replace-column {
+            width: 48%;
+        }
         .find-replace {
             margin-bottom: 20px;
         }
@@ -31,29 +38,59 @@
 <textarea id="inputHTML" placeholder="Paste your HTML content here..."></textarea>
 
 <h2>Find and Replace Modules:</h2>
-<div class="find-replace">
-    <label for="find1">Find 1:</label>
-    <input type="text" id="find1">
-    <label for="replace1">Replace with:</label>
-    <input type="text" id="replace1">
-</div>
-<div class="find-replace">
-    <label for="find2">Find 2:</label>
-    <input type="text" id="find2">
-    <label for="replace2">Replace with:</label>
-    <input type="text" id="replace2">
-</div>
-<div class="find-replace">
-    <label for="find3">Find 3:</label>
-    <input type="text" id="find3">
-    <label for="replace3">Replace with:</label>
-    <input type="text" id="replace3">
-</div>
-<div class="find-replace">
-    <label for="find4">Find 4:</label>
-    <input type="text" id="find4">
-    <label for="replace4">Replace with:</label>
-    <input type="text" id="replace4">
+<div class="find-replace-container">
+    <div class="find-replace-column">
+        <div class="find-replace">
+            <label for="find1">Find 1:</label>
+            <input type="text" id="find1" value="utm_campaign=summer24">
+            <label for="replace1">Replace with:</label>
+            <input type="text" id="replace1" value="utm_campaign=membership">
+        </div>
+        <div class="find-replace">
+            <label for="find2">Find 2:</label>
+            <input type="text" id="find2" value="https://mcusercontent.com/e4350dc4ad911aad8b4c83fb1/images/d2a92b09-267b-4dbc-bdd8-69c8d1c1fb52.png">
+            <label for="replace2">Replace with:</label>
+            <input type="text" id="replace2" value="https://mcusercontent.com/e4350dc4ad911aad8b4c83fb1/images/00a4ec15-6943-5541-d743-4d833e50fb71.png">
+        </div>
+        <div class="find-replace">
+            <label for="find3">Find 3:</label>
+            <input type="text" id="find3" value="https://mcusercontent.com/e4350dc4ad911aad8b4c83fb1/images/f085a0d3-8aa7-4ca7-a36d-b9de3f818a36.png">
+            <label for="replace3">Replace with:</label>
+            <input type="text" id="replace3" value="https://mcusercontent.com/e4350dc4ad911aad8b4c83fb1/images/7eb0038c-a67f-1f96-db77-b09c68935672.png">
+        </div>
+        <div class="find-replace">
+            <label for="find4">Find 4:</label>
+            <input type="text" id="find4" value='margin: 0px;" width="15"'>
+            <label for="replace4">Replace with:</label>
+            <input type="text" id="replace4" value='margin: 4px;" width="15"'>
+        </div>
+    </div>
+    <div class="find-replace-column">
+        <div class="find-replace">
+            <label for="find5">Find 5:</label>
+            <input type="text" id="find5" value="">
+            <label for="replace5">Replace with:</label>
+            <input type="text" id="replace5" value="">
+        </div>
+        <div class="find-replace">
+            <label for="find6">Find 6:</label>
+            <input type="text" id="find6" value="">
+            <label for="replace6">Replace with:</label>
+            <input type="text" id="replace6" value="">
+        </div>
+        <div class="find-replace">
+            <label for="find7">Find 7:</label>
+            <input type="text" id="find7" value="">
+            <label for="replace7">Replace with:</label>
+            <input type="text" id="replace7" value="">
+        </div>
+        <div class="find-replace">
+            <label for="find8">Find 8:</label>
+            <input type="text" id="find8" value="">
+            <label for="replace8">Replace with:</label>
+            <input type="text" id="replace8" value="">
+        </div>
+    </div>
 </div>
 
 <button onclick="performFindAndReplace()">Replace and Show Result</button>
@@ -73,12 +110,24 @@
         let replace3 = document.getElementById("replace3").value;
         let find4 = document.getElementById("find4").value;
         let replace4 = document.getElementById("replace4").value;
+        let find5 = document.getElementById("find5").value;
+        let replace5 = document.getElementById("replace5").value;
+        let find6 = document.getElementById("find6").value;
+        let replace6 = document.getElementById("replace6").value;
+        let find7 = document.getElementById("find7").value;
+        let replace7 = document.getElementById("replace7").value;
+        let find8 = document.getElementById("find8").value;
+        let replace8 = document.getElementById("replace8").value;
 
         // Perform replacements
         if (find1) inputHTML = inputHTML.split(find1).join(replace1);
         if (find2) inputHTML = inputHTML.split(find2).join(replace2);
         if (find3) inputHTML = inputHTML.split(find3).join(replace3);
         if (find4) inputHTML = inputHTML.split(find4).join(replace4);
+        if (find5) inputHTML = inputHTML.split(find5).join(replace5);
+        if (find6) inputHTML = inputHTML.split(find6).join(replace6);
+        if (find7) inputHTML = inputHTML.split(find7).join(replace7);
+        if (find8) inputHTML = inputHTML.split(find8).join(replace8);
 
         // Display the result
         document.getElementById("resultHTML").value = inputHTML;
