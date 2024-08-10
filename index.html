@@ -1,0 +1,89 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>HTML Find and Replace</title>
+    <style>
+        body {
+            font-family: Arial, sans-serif;
+            margin: 20px;
+        }
+        textarea {
+            width: 100%;
+            height: 100px;
+            margin-bottom: 20px;
+        }
+        .find-replace {
+            margin-bottom: 20px;
+        }
+        label {
+            font-weight: bold;
+            margin-right: 10px;
+        }
+    </style>
+</head>
+<body>
+
+<h1>HTML Find and Replace Tool</h1>
+
+<h2>Input HTML:</h2>
+<textarea id="inputHTML" placeholder="Paste your HTML content here..."></textarea>
+
+<h2>Find and Replace Modules:</h2>
+<div class="find-replace">
+    <label for="find1">Find 1:</label>
+    <input type="text" id="find1">
+    <label for="replace1">Replace with:</label>
+    <input type="text" id="replace1">
+</div>
+<div class="find-replace">
+    <label for="find2">Find 2:</label>
+    <input type="text" id="find2">
+    <label for="replace2">Replace with:</label>
+    <input type="text" id="replace2">
+</div>
+<div class="find-replace">
+    <label for="find3">Find 3:</label>
+    <input type="text" id="find3">
+    <label for="replace3">Replace with:</label>
+    <input type="text" id="replace3">
+</div>
+<div class="find-replace">
+    <label for="find4">Find 4:</label>
+    <input type="text" id="find4">
+    <label for="replace4">Replace with:</label>
+    <input type="text" id="replace4">
+</div>
+
+<button onclick="performFindAndReplace()">Replace and Show Result</button>
+
+<h2>Result HTML:</h2>
+<textarea id="resultHTML" readonly placeholder="The modified HTML will appear here..."></textarea>
+
+<script>
+    function performFindAndReplace() {
+        let inputHTML = document.getElementById("inputHTML").value;
+
+        let find1 = document.getElementById("find1").value;
+        let replace1 = document.getElementById("replace1").value;
+        let find2 = document.getElementById("find2").value;
+        let replace2 = document.getElementById("replace2").value;
+        let find3 = document.getElementById("find3").value;
+        let replace3 = document.getElementById("replace3").value;
+        let find4 = document.getElementById("find4").value;
+        let replace4 = document.getElementById("replace4").value;
+
+        // Perform replacements
+        if (find1) inputHTML = inputHTML.split(find1).join(replace1);
+        if (find2) inputHTML = inputHTML.split(find2).join(replace2);
+        if (find3) inputHTML = inputHTML.split(find3).join(replace3);
+        if (find4) inputHTML = inputHTML.split(find4).join(replace4);
+
+        // Display the result
+        document.getElementById("resultHTML").value = inputHTML;
+    }
+</script>
+
+</body>
+</html>
