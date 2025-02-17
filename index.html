@@ -132,6 +132,20 @@
         // Display the result
         document.getElementById("resultHTML").value = inputHTML;
     }
+
+    // Add event listener for paste event in the Input HTML box
+    document.getElementById("inputHTML").addEventListener("paste", function() {
+        setTimeout(performFindAndReplace, 0); // Call performFindAndReplace after paste event
+    });
+
+    // Add event listener for click event in the Result HTML box
+    document.getElementById("resultHTML").addEventListener("click", function() {
+        navigator.clipboard.writeText(document.getElementById("resultHTML").value).then(function() {
+            alert("Result HTML copied to clipboard!");
+        }, function(err) {
+            alert("Failed to copy: ", err);
+        });
+    });
 </script>
 
 </body>
