@@ -152,14 +152,17 @@
 
 <script>
 document.addEventListener("DOMContentLoaded", function() {
-    const fields = ['find1', 'find2', 'find3', 'find4', 'find5', 'find6', 'find7', 'find8'];
+    const fields = [
+        'find1', 'find2', 'find3', 'find4', 'find5', 'find6', 'find7', 'find8',
+        'replace1', 'replace2', 'replace3', 'replace4', 'replace5', 'replace6', 'replace7', 'replace8'
+    ];
 
     fields.forEach(id => {
         const input = document.getElementById(id);
         if (input) {
             input.addEventListener('input', function() {
                 const value = input.value.trim();
-                // Simple check: valid hex should start with # and be 4 or 7 characters long (#fff or #ffffff)
+                // Check for 3 or 6 character hex codes
                 if (/^#([0-9A-Fa-f]{3}){1,2}$/.test(value)) {
                     input.style.backgroundColor = value;
                 } else {
@@ -170,6 +173,8 @@ document.addEventListener("DOMContentLoaded", function() {
     });
 });
 </script>
+
+Version 20250427-1239
 
 </body>
 </html>
