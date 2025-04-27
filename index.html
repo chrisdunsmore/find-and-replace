@@ -1,154 +1,48 @@
 <!DOCTYPE html>
 <html lang="en">
 <head>
-    <meta charset="UTF-8">
-    <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title>HTML Find and Replace</title>
-    <style>
-        body {
-            font-family: Arial, sans-serif;
-            margin: 20px;
-        }
-        textarea {
-            width: 100%;
-            height: 100px;
-            margin-bottom: 20px;
-        }
-        .find-replace-container {
-            display: flex;
-            justify-content: space-between;
-        }
-        .find-replace-column {
-            width: 48%;
-        }
-        .find-replace {
-            margin-bottom: 20px;
-        }
-        label {
-            font-weight: bold;
-            margin-right: 10px;
-        }
-    </style>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>Find and Replace</title>
+  <style>
+    .color-box {
+      width: 150px;
+      height: 30px;
+      margin: 5px;
+      border: 1px solid #ccc;
+      text-align: center;
+    }
+  </style>
 </head>
 <body>
+  <div>
+    <input type="text" id="find1" class="color-box" placeholder="Enter Hex Code">
+    <input type="text" id="find2" class="color-box" placeholder="Enter Hex Code">
+    <input type="text" id="find3" class="color-box" placeholder="Enter Hex Code">
+    <input type="text" id="find4" class="color-box" placeholder="Enter Hex Code">
+    <input type="text" id="find5" class="color-box" placeholder="Enter Hex Code">
+    <input type="text" id="find6" class="color-box" placeholder="Enter Hex Code">
+    <input type="text" id="find7" class="color-box" placeholder="Enter Hex Code">
+    <input type="text" id="find8" class="color-box" placeholder="Enter Hex Code">
+  </div>
 
-<h1>HTML Find and Replace Tool</h1>
-
-<h2>Input HTML:</h2>
-<textarea id="inputHTML" placeholder="Paste your HTML content here..."></textarea>
-
-<h2>Find and Replace Modules:</h2>
-<div class="find-replace-container">
-    <div class="find-replace-column">
-        <div class="find-replace">
-            <label for="find1">Find 1:</label>
-            <input type="text" id="find1" value="">
-            <label for="replace1">Replace with:</label>
-            <input type="text" id="replace1" value="">
-        </div>
-        <div class="find-replace">
-            <label for="find2">Find 2:</label>
-            <input type="text" id="find2" value="">
-            <label for="replace2">Replace with:</label>
-            <input type="text" id="replace2" value="">
-        </div>
-        <div class="find-replace">
-            <label for="find3">Find 3:</label>
-            <input type="text" id="find3" value="">
-            <label for="replace3">Replace with:</label>
-            <input type="text" id="replace3" value="">
-        </div>
-        <div class="find-replace">
-            <label for="find4">Find 4:</label>
-            <input type="text" id="find4" value="">
-            <label for="replace4">Replace with:</label>
-            <input type="text" id="replace4" value="">
-        </div>
-    </div>
-    <div class="find-replace-column">
-        <div class="find-replace">
-            <label for="find5">Find 5:</label>
-            <input type="text" id="find5" value="">
-            <label for="replace5">Replace with:</label>
-            <input type="text" id="replace5" value="">
-        </div>
-        <div class="find-replace">
-            <label for="find6">Find 6:</label>
-            <input type="text" id="find6" value="">
-            <label for="replace6">Replace with:</label>
-            <input type="text" id="replace6" value="">
-        </div>
-        <div class="find-replace">
-            <label for="find7">Find 7:</label>
-            <input type="text" id="find7" value="">
-            <label for="replace7">Replace with:</label>
-            <input type="text" id="replace7" value="">
-        </div>
-        <div class="find-replace">
-            <label for="find8">Find 8:</label>
-            <input type="text" id="find8" value="">
-            <label for="replace8">Replace with:</label>
-            <input type="text" id="replace8" value="">
-        </div>
-    </div>
-</div>
-
-<button onclick="performFindAndReplace()">Replace and Show Result</button>
-
-<h2>Result HTML: <span id="timestamp"></span></h2>
-<textarea id="resultHTML" readonly placeholder="The modified HTML will appear here..."></textarea>
-
-<script>
-    function performFindAndReplace() {
-        let inputHTML = document.getElementById("inputHTML").value;
-
-        let find1 = document.getElementById("find1").value;
-        let replace1 = document.getElementById("replace1").value;
-        let find2 = document.getElementById("find2").value;
-        let replace2 = document.getElementById("replace2").value;
-        let find3 = document.getElementById("find3").value;
-        let replace3 = document.getElementById("replace3").value;
-        let find4 = document.getElementById("find4").value;
-        let replace4 = document.getElementById("replace4").value;
-        let find5 = document.getElementById("find5").value;
-        let replace5 = document.getElementById("replace5").value;
-        let find6 = document.getElementById("find6").value;
-        let replace6 = document.getElementById("replace6").value;
-        let find7 = document.getElementById("find7").value;
-        let replace7 = document.getElementById("replace7").value;
-        let find8 = document.getElementById("find8").value;
-        let replace8 = document.getElementById("replace8").value;
-
-        // Perform replacements
-        if (find1) inputHTML = inputHTML.split(find1).join(replace1);
-        if (find2) inputHTML = inputHTML.split(find2).join(replace2);
-        if (find3) inputHTML = inputHTML.split(find3).join(replace3);
-        if (find4) inputHTML = inputHTML.split(find4).join(replace4);
-        if (find5) inputHTML = inputHTML.split(find5).join(replace5);
-        if (find6) inputHTML = inputHTML.split(find6).join(replace6);
-        if (find7) inputHTML = inputHTML.split(find7).join(replace7);
-        if (find8) inputHTML = inputHTML.split(find8).join(replace8);
-
-        // Display the result
-        document.getElementById("resultHTML").value = inputHTML;
+  <script>
+    // Function to validate Hex color and apply it as background
+    function applyBackgroundColor(input) {
+      const hex = input.value.trim();
+      const isValidHex = /^#([0-9A-F]{3}|[0-9A-F]{6})$/i.test(hex); // Validate Hex format
+      
+      if (isValidHex) {
+        input.style.backgroundColor = hex; // Apply Hex color
+      } else {
+        input.style.backgroundColor = ''; // Reset to default
+      }
     }
 
-    // Add event listener for paste event in the Input HTML box
-    document.getElementById("inputHTML").addEventListener("paste", function() {
-        setTimeout(performFindAndReplace, 0); // Call performFindAndReplace after paste event
+    // Attach event listeners to input boxes
+    document.querySelectorAll('.color-box').forEach(input => {
+      input.addEventListener('input', () => applyBackgroundColor(input));
     });
-
-    // Add event listener for click event in the Result HTML box
-    document.getElementById("resultHTML").addEventListener("click", function() {
-        navigator.clipboard.writeText(document.getElementById("resultHTML").value).then(function() {
-            const now = new Date();
-            const timestamp = `Replaced and Copied to clipboard at ${now.toLocaleTimeString()}`;
-            document.getElementById("timestamp").textContent = timestamp;
-        }, function(err) {
-            console.error("Failed to copy: ", err);
-        });
-    });
-</script>
-
+  </script>
 </body>
 </html>
